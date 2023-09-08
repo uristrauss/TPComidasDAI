@@ -8,12 +8,13 @@ import axios, { Axios } from 'axios';
 const Formulario = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [vacio, setVacio] = useState(false);
     const [error, setError] = useState(false);
 
     const OnPressed = () => {
     if(email == '' || password =='')
     {
-        setError(true);
+        setVacio(true);
     }
     else
     {
@@ -24,9 +25,11 @@ const Formulario = () => {
           .then(function (response) {
             console.log(response);
           })
+          .catch(function (response) {
+            setError(true);
+          })
     }
-}
-
+  }
 
 
     return(
@@ -57,7 +60,7 @@ const Formulario = () => {
       </TouchableOpacity>
 
     <View>
-        { error && <Text>El email o password están vacios.</Text>}
+        { vacio ? <Text>El email o password están vacios.</Text> : error ? <Text>El email o password son incorrectos.</Text> : <></>}
     </View>
 
     </View>
