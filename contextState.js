@@ -1,4 +1,6 @@
-import react, { useEffect } from "react";
+import React, { useEffect } from "react";
+import Formulario from './Formulario';
+import { useContext } from "react";
 
 export const initialState = {
     loading: true,
@@ -42,16 +44,6 @@ export const reducer = (state = {}, action) => {
 
   export const useContextState = () => useContext(Cont);
 
-  /*
-  const Formulario = ()=>{
-    const {contextState , setContextState} = useContextState();
+  
 
-    useEffect(()=>{
-        setContextState({
-            type :ActionTypes.SetToken,
-            value : 18,
-        });
-      
-    },[])
-  }
-  */
+  

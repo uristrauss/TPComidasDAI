@@ -2,8 +2,11 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { TextInput } from 'react-native-web';
 import axios, { Axios } from 'axios';
+import { useContextState } from './contextState';
 
 //AXIOS FALLA REQUEST FAIL
+
+//no funcionan las alertas de abajo!
 
 const Formulario = () => {
     const [email, setEmail] = useState('');
@@ -11,6 +14,9 @@ const Formulario = () => {
     const [vacio, setVacio] = useState(false);
     const [error, setError] = useState(false);
 
+
+    const {contextState , setContextState} = useContextState();
+  
     const OnPressed = () => {
     if(email == '' || password =='')
     {
@@ -24,11 +30,20 @@ const Formulario = () => {
           })
           .then(function (response) {
             console.log(response);
+
+            
+              setContextState({
+                  type: ActionTypes.SetToken,
+                  value: response.data.token,
+              });      
+          
           })
           .catch(function (response) {
             setError(true);
           })
     }
+
+
   }
 
 
