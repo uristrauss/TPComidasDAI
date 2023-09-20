@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Busqueda from './Busqueda';
 import Formulario from './Formulario';
 
 export default function App() {
   return (
-    <Formulario/>
+    <Busqueda/>
     /*
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
