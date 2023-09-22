@@ -8,7 +8,7 @@ import { useContextState } from './contextState';
 
 //no funcionan las alertas de abajo!
 
-const Formulario = () => {
+const Formulario = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [vacio, setVacio] = useState(false);
@@ -30,7 +30,7 @@ const Formulario = () => {
           })
           .then(function (response) {
             console.log(response);
-
+            navigation.navigate('Busqueda')
             
               setContextState({
                   type: ActionTypes.SetToken,
@@ -41,12 +41,8 @@ const Formulario = () => {
           .catch(function (response) {
             setError(true);
           })
-    }
-
-
-  }
-
-
+    }}
+    
     return(
     <View style={styles.container}>
     <Image style={styles.image} source = {require("./assets/logo.png")}/>

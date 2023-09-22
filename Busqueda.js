@@ -7,18 +7,21 @@ import {
   Text,
   StatusBar,
   TextInput,
-  styles
+  styles,
+  Image,
+  Button
   }
    from 'react-native';
 import axios from 'axios';
+import Detalle from './Detalle';
 
-const Busqueda = () => {
+const Busqueda = ({navigation}) => {
   const [input, setInput] = useState('');
   const [lista, setLista] = useState([]);
 
   useEffect(() => {
   if (input.length > 2) {
-    axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${input}&apiKey=a6aa31454fab42f790965a67a211fa2f`, {
+    axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${input}&apiKey=659c6657aa804d29a9d7ea134ec03ce1`, {
           })
           .then(function (response) {
             setLista(response.data.results);
@@ -48,16 +51,25 @@ const Busqueda = () => {
         renderItem={({ item }) => ( // por cada elemento de la lista, ¿que voy a mostrar?
           <View>
             <Text>{item.title}</Text>
+            <Image source={{ uri: item.image }} style={{ width: 100, height: 100 }} />
+            <Button
+            title="Detalle del plato"
+            onPress={() =>
+            navigation.navigate('Detalle', { id: item.id })
+            }
+          
+          />
           </View>
+          
         )}
       />
     </View>
-
   )
-
 };
 
-
+const ProfileScreen = ({navigation, route}) => {
+  return <Text>This is {route.params.name}'s profile</Text>;
+};
 
 export default Busqueda;
 

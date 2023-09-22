@@ -2,19 +2,32 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Busqueda from './Busqueda';
 import Formulario from './Formulario';
+import Detalle from './Detalle';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+const MyStack = () => {
   return (
-    <Busqueda/>
-    /*
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-    */
-
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Formulario">
+        <Stack.Screen
+          name="Formulario"
+          component={Formulario}
+          options={{title: 'Login'}}
+        />
+        <Stack.Screen name="Busqueda" component={Busqueda} />
+        <Stack.Screen name="Detalle" component={Detalle} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
+};
 
+
+const App = () => {
+  return (
+    <MyStack/>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -25,3 +38,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;

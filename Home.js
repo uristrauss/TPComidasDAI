@@ -6,6 +6,9 @@ import { useContextState } from './contextState';
 
 const Home = ()=>{
     const [Plato, setPlato] = useState ('');
-
+    
 
 }
+
+export const setPlato = 
+[]
