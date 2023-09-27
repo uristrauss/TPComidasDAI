@@ -5,21 +5,24 @@ import Formulario from './Formulario';
 import Detalle from './Detalle';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { ContextProvider } from './contextState';
 
 const Stack = createNativeStackNavigator();
 const MyStack = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Formulario">
-        <Stack.Screen
-          name="Formulario"
-          component={Formulario}
-          options={{title: 'Login'}}
-        />
-        <Stack.Screen name="Busqueda" component={Busqueda} />
-        <Stack.Screen name="Detalle" component={Detalle} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ContextProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Formulario">
+          <Stack.Screen
+            name="Formulario"
+            component={Formulario}
+            options={{title: 'Login'}}
+          />
+          <Stack.Screen name="Busqueda" component={Busqueda} />
+          <Stack.Screen name="Detalle" component={Detalle} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ContextProvider>
   );
 };
 

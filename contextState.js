@@ -7,18 +7,37 @@ export const initialState = {
     user: {
         token: '',
     },
+    menu: []
 };
 
 export const ActionTypes = {
     SetToken: 'SET_TOKEN',
+    AddPlato: 'ADD_PLATO'
 };
 
-export const reducer = (state = {}, action) => {
+export const reducer = (state = initialState, action) => {
     switch (action.type) {
       case ActionTypes.SetToken: {
         return { 
             ...state,
-             user: token.newValue };
+             user: action.newValue };
+      }
+
+
+      case ActionTypes.AddPlato: {
+        state.menu.push(action.newValue)
+        console.log("plato agreado", action.newValue)
+
+        return{
+          state
+        }
+      }
+      case ActionTypes.RemovePlato: {
+        //remover plato
+
+        return{
+          ...state, menu: [2]
+        }
       }
       default: {
         return state;
