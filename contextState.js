@@ -33,7 +33,10 @@ export const reducer = (state = initialState, action) => {
         }
       }
       case ActionTypes.RemovePlato: {
-        //remover plato
+        /* CHEAQUEAR
+        state.menu.delete(action.newValue)
+        console.log("Se elimno el plato", action.newVAlue)
+        */
 
         return{
           ...state, menu: [2]
