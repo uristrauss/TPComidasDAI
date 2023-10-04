@@ -1,4 +1,4 @@
-/*import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   View,
@@ -7,31 +7,32 @@ import {
   Text,
   StatusBar,
   TextInput,
-  styles,
   Image,
   Button
-  }
-  from 'react-native';
-  import axios from 'axios';
-  import { useContextState } from './contextState';
+} from 'react-native';
+import axios from 'axios';
+import { useContextState } from './contextState';
+
+const Menu = ({ navigation, route }) => {
   const [detallePlato, setDetallePlato] = useState({});
-  const {contextState, setContextState} = useContextState();
+  const { contextState, setContextState } = useContextState();
 
-const Detalle = ({navigation, route}) => {
-    useEffect(() => {
-        axios.get(`https://api.spoonacular.com/recipes/${route.params.id}/information?apiKey=3a5083611ddd48758994eed45d254648`, {
-        })
-        .then(function (response) {
-        setDetallePlato(response.data);
-        })
-        .catch(function (response) {
-        })
-      }) 
 
-    return{
-        
-    }
-  }
+
+  return (
+    <SafeAreaView>
+      <View>
+        {/*SACAR EL DISH*/}
+        {contextState?.menu?.map((dish, index) => (
+          <View key={index}>
+            <Text>{dish.title}</Text>
+            <Text>{dish.description}</Text>
+            <Text>{dish.price}</Text>
+          </View>
+        ))}
+      </View>
+    </SafeAreaView>
+  );
+};
 
 export default Menu;
-*/

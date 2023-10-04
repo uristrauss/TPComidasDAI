@@ -24,7 +24,7 @@ const Detalle = ({navigation, route}) => {
   const [detallePlato, setDetallePlato] = useState({});
   const {contextState, setContextState} = useContextState();
   useEffect(() => {
-    axios.get(`https://api.spoonacular.com/recipes/${route.params.id}/information?apiKey=3a5083611ddd48758994eed45d254648`, {
+    axios.get(`https://api.spoonacular.com/recipes/${route.params.id}/information?apiKey=a6aa31454fab42f790965a67a211fa2f`, {
     })
     .then(function (response) {
     setDetallePlato(response.data);
@@ -45,7 +45,7 @@ const Detalle = ({navigation, route}) => {
             title="Agregar al menú"
             onPress={() => {
               setContextState({type: 'ADD_PLATO', newValue: detallePlato});
-              /*navigation.navigate('Menu', { id: item.id })*/
+              navigation.navigate('Menu')
             }}
           />
     </View>

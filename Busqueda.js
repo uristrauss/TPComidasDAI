@@ -21,7 +21,7 @@ const Busqueda = ({navigation}) => {
 
   useEffect(() => {
   if (input.length > 2) {
-    axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${input}&apiKey=3a5083611ddd48758994eed45d254648`, {
+    axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${input}&apiKey=a6aa31454fab42f790965a67a211fa2f`, {
           })
           .then(function (response) {
             setLista(response.data.results);
