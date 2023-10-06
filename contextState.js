@@ -12,7 +12,8 @@ export const initialState = {
 
 export const ActionTypes = {
     SetToken: 'SET_TOKEN',
-    AddPlato: 'ADD_PLATO'
+    AddPlato: 'ADD_PLATO',
+    RemovePlato: 'REMOVE_PLATO'
 };
 
 export const reducer = (state = initialState, action) => {
@@ -29,17 +30,17 @@ export const reducer = (state = initialState, action) => {
         console.log("plato agreado", action.newValue)
 
         return{
-          state
+          ...state
         }
       }
+
       case ActionTypes.RemovePlato: {
-        /* CHEAQUEAR
-        state.menu.delete(action.newValue)
-        console.log("Se elimno el plato", action.newVAlue)
-        */
+        const nuevoMenu = state.menu.filter((plato) => plato.id !== action.newValue);
+        console.log("Plato eliminado", action.newValue);
+        console.log(nuevoMenu.length)
 
         return{
-          ...state, menu: [2]
+          ...state, menu: [nuevoMenu]
         }
       }
       default: {
