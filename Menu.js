@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Text, View, Image, Button, FlatList
+  Text, View, Image, Button, FlatList, StyleSheet
 } from 'react-native';
 import { useContextState } from './contextState';
 
@@ -41,13 +41,21 @@ const Menu = ({ navigation, route }) => {
         )}
       />
 
-    <Text>Acumulativo de precio del menú: {contextState?.menu?.reduce((total, menu) => total + menu.pricePerServing, 0)}</Text>
+    <Text style={styles.text}>Acumulativo de precio del menú: {contextState?.menu?.reduce((total, menu) => total + menu.pricePerServing, 0)}</Text>
 
-    <Text>Promedio de HealthScore entre todos los platos: {contextState?.menu?.length ? totalHealth / contextState.menu.length : 0}</Text>
+    <Text style={styles.text}>Promedio de HealthScore entre todos los platos: {contextState?.menu?.length ? totalHealth / contextState.menu.length : 0}</Text>
 
     
   </View>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+});
 
 export default Menu;

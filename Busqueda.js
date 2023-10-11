@@ -71,9 +71,21 @@ const Busqueda = ({navigation}) => {
           
         )}
       />
+      <br></br>
+      <Button
+            title="Ir al Menú"
+            onPress={() =>
+            navigation.navigate('Menu')
+            }
+          
+          />
     </View>
   )
 };
+
+
+
+
 
 const ProfileScreen = ({navigation, route}) => {
   return <Text>This is {route.params.name}'s profile</Text>;

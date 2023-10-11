@@ -4,9 +4,6 @@ import { TextInput } from 'react-native-web';
 import axios, { Axios } from 'axios';
 import { useContextState } from './contextState';
 
-//AXIOS FALLA REQUEST FAIL
-
-//no funcionan las alertas de abajo!
 
 const Formulario = ({navigation}) => {
     const [email, setEmail] = useState('');
