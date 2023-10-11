@@ -24,6 +24,7 @@ const Formulario = ({navigation}) => {
     }
     else
     {
+      setVacio(false);
         axios.post('http://challenge-react.alkemy.org/', {
             email: email,
             password: password

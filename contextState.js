@@ -40,7 +40,7 @@ export const reducer = (state = initialState, action) => {
         console.log(nuevoMenu.length)
 
         return{
-          ...state, menu: [nuevoMenu]
+          ...state, menu: [...nuevoMenu]
         }
       }
       default: {

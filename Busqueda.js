@@ -28,8 +28,16 @@ const Busqueda = ({navigation}) => {
             console.log(response);
 
           })
-          .catch(function (response) {
+  }else{
+
+    axios.get('', {
           })
+          .then(function (response) {
+            setLista();
+            console.log(response);
+
+          })
+
   }
 }, [input]);
 
